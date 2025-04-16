@@ -1,7 +1,9 @@
+import Heading from "../components/Heading/Heading";
+
 const ResetPassword = () => {
   return (
     <div>
-      パスワードリセット画面
+      <Heading title="パスワードリセット" />
     </div>
   )
 }

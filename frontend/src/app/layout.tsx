@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <div className="flex h-screen">
           <SideMenu />
-          <main className="flex-1 bg-[#F5F5F5] p-4">
+          <main className="flex-1 bg-[#F5F5F5] p-8">
             {children}
           </main>
         </div>

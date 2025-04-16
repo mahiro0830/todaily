@@ -1,7 +1,9 @@
+import Heading from "../components/Heading/Heading";
+
 const Login = () => {
   return (
     <div>
-      ログイン画面
+      <Heading title="ログイン" />
     </div>
   )
 }

@@ -1,7 +1,9 @@
+import Heading from "../components/Heading/Heading";
+
 const Logout = () => {
   return (
     <div>
-      ログアウト画面
+      <Heading title="ログアウト" />
     </div>
   )
 }

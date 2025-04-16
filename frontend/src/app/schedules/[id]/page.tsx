@@ -1,7 +1,9 @@
+import Heading from "@/app/components/Heading/Heading";
+
 const Schedule = () => {
   return (
     <div>
-      スケジュール詳細画面
+      <Heading title="スケジュール詳細" />
     </div>
   )
 }

@@ -1,7 +1,9 @@
+import Heading from "../components/Heading/Heading";
+
 const Settings = () => {
   return (
     <div>
-      設定画面
+      <Heading title="設定" />
     </div>
   )
 }
