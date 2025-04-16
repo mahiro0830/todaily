@@ -1,7 +1,9 @@
+import Heading from "../components/Heading/Heading";
+
 const Dashboard = () => {
   return (
     <div>
-      ダッシュボード画面
+      <Heading title="ダッシュボード" />
     </div>
   )
 }
