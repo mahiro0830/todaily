@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import SideMenu from "./components/SideMenu/SideMenu";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,9 +27,14 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-w-[1400px]`}
       >
-        {children}
+        <div className="flex h-screen">
+          <SideMenu />
+          <main className="flex-1 bg-[#F5F5F5] p-4">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );
