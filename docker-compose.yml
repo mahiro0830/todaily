@@ -1,0 +1,50 @@
+version: '3.9'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: todaily-mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: todaily
+      MYSQL_USER: todaily_user
+      MYSQL_PASSWORD: todaily_pass
+    volumes:
+      - ./docker/mysql:/docker-entrypoint-initdb.d
+      - mysql-data:/var/lib/mysql
+
+  backend:
+    build: ./backend
+    container_name: todaily-backend
+    ports:
+      - "5050:3000"
+    depends_on:
+      - mysql
+    environment:
+      DATABASE_HOST: mysql
+      DATABASE_PORT: 3306
+      DATABASE_USER: todaily_user
+      DATABASE_PASSWORD: todaily_pass
+      DATABASE_NAME: todaily
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    command: npm run start:dev
+
+  frontend:
+    build: ./frontend
+    container_name: todaily-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+    working_dir: /app
+    command: npm run dev
+
+volumes:
+  mysql-data:
